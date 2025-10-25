@@ -6,10 +6,14 @@ import path from "path";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [tanstackRouter({
-    target: 'react',
-    autoCodeSplitting: true,
-  }), react(), tailwindcss()],
+  plugins: [
+    tanstackRouter({
+      target: 'react',
+      autoCodeSplitting: true,
+    }),
+    react(),
+    tailwindcss()
+  ],
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
@@ -18,6 +22,9 @@ export default defineConfig({
   server: {
     port: 5173,
     host: true,
+  },
+  preview: {
+    allowedHosts: ['test1.myazuki.net', 'nginx.myazuki.site']
   },
   build: {
     outDir: "dist",
